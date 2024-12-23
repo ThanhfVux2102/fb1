@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thêm/Sửa Công Việc</title>
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center"><%= task ? 'Sửa Công Việc' : 'Thêm Công Việc' %></h1>
+    <form action="<%= task ? '/tasks/edit/' + task._id : '/tasks/create' %>" method="POST">
+      <div class="mb-3">
+        <label for="task">Công Việc</label>
+        <input type="text" id="task" name="task" class="form-control" value="<%= task ? task.task : '' %>" required>
+      </div>
+      <div class="mb-3">
+        <label for="level">Độ Quan Trọng</label>
+        <select id="level" name="level" class="form-select" required>
+          <option value="Thấp" <%= task && task.level === 'Thấp' ? 'selected' : '' %>>Thấp</option>
+          <option value="Trung Bình" <%= task && task.level === 'Trung Bình' ? 'selected' : '' %>>Trung Bình</option>
+          <option value="Cao" <%= task && task.level === 'Cao' ? 'selected' : '' %>>Cao</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary"><%= task ? 'Cập Nhật' : 'Thêm' %></button>
+    </form>
+  </div>
+</body>
+</html>

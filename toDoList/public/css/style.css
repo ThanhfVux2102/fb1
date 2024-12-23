@@ -1,0 +1,7 @@
+    .ten {
+        text-align: center;
+        width: 100%; /* Đảm bảo chiều rộng của phần tử */
+        font-size: 2rem; /* Tăng kích thước chữ để dễ nhìn */
+        margin-top: 20px; /* Tạo khoảng cách trên nếu cần */
+      }
+      

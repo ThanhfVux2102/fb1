@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center">Danh Sách Công Việc</h1>
+    <a href="/tasks/add" class="btn btn-primary mb-3">Thêm Công Việc</a>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Công Việc</th>
+          <th>Độ Quan Trọng</th>
+          <th>Hành Động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tasks.forEach(task => { %>
+        <tr>
+          <td><%= task._id %></td>
+          <td><%= task.task %></td>
+          <td><%= task.level %></td>
+          <td>
+            <a href="/tasks/edit/<%= task._id %>" class="btn btn-warning btn-sm">Sửa</a>
+            <a href="/tasks/delete/<%= task._id %>" class="btn btn-danger btn-sm">Xóa</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
